@@ -1,0 +1,72 @@
+.left-half {
+    width: 65%;
+    float: left;
+}
+
+.right-half {
+    width: 30%;
+    float: right;
+}
+
+.student_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.student_item {
+    display: block;
+    border: 1px solid #666;
+    color: #fff;
+    font-weight: bold;
+    width: 22%;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 5px;
+    height: 120px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background: hsl(204, 86%, 53%);
+    transition: 0.3s;
+}
+
+.student_item:hover {
+    box-shadow: 0 0 15px hsl(204, 86%, 53%);
+}
+
+.student_item.chosen {
+    font-weight: normal;
+    font-size: 16px;
+    opacity: 0.8;
+    background: #ccc;
+    cursor: auto;
+    color: #000;
+}
+
+.student_item.chosen:hover {
+    box-shadow: none;
+}
+
+.presenter-box {
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+}
+
+/* List Animation */
+.list-item {
+  display: block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+    font-size: 20px;
+    color: hsl(204, 86%, 53%);
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}

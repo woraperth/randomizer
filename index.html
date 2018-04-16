@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Randomizer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <div id="app">
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            {{title}}
+          </h1>
+          <h2 class="subtitle">
+            {{subtitle}}
+          </h2>
+        </div>
+      </div>
+    </section>
+
+  <div class="section">
+   <div class="container">
+        <div v-if="step == 1">
+           <h3 class="is-size-3">Step 1</h3>
+            <p>Add student list in the box below (1 student per line)</p>
+            <textarea class="textarea" name="stulist" id="stulist" cols="30" rows="10">
+Mario
+Luigi
+Peach
+Yoshi
+Wario</textarea><br>
+            <button class="button is-info" v-on:click="clickStart">Start Randomizer!</button>
+        </div>
+
+        <div v-if="step == 2">
+            <div class="columns">
+                <div class="column is-two-third">
+                   <h3 class="is-size-3">Step 2</h3>
+                    <p>Choose the student order from <span>{{ student_list.length }}</span> students. The character shown is one of the character in the name.</p>
+                    <div class="student_list">
+                        <div v-for="student in student_list" v-bind:class="[{ chosen: isChosen(student) }, 'student_item']" v-on:click="chooseStudent(student)">{{ student_list.indexOf(student) + 1 }}. {{ isChosen(student) ? student : showStudentName(student) }}</div>
+                    </div>
+                    <button v-on:click="resetOrder" class="button">Reset Order</button>
+                </div>
+                <div class="column is-one-third">
+                    <div class="presenter-box">
+                        <h3 class="is-size-4">Presentation Order</h3>
+                       <hr>
+                       <transition-group name="list" tag="div">
+                            <div v-for="student in student_order" v-bind:key="student" class="list-item">
+                            {{ student_order.indexOf(student) + 1 }}. {{ student }}
+                            </div>
+                        </transition>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+  
+  <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+          <strong>Randomizer</strong> by <a href="https://www.github.com/woraperth">Perth</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/custom.js"></script>
+</body>
+</html>
