@@ -61,9 +61,8 @@ Wario</textarea><br>
             </div>
         </div>
 
-        <div v-if="step == 2 && student_list.length === student_order.length">
-          <hr>
-          <h3 class="is-size-3">Final Presentation Order</h3>
+        <div v-if="step == 3">
+          <h3 class="is-size-3">Here is the final Presentation Order:</h3>
           <div v-for="student in student_order" v-bind:key="student" class="list-item">
             {{ student_order.indexOf(student) + 1 }}. {{ student }}
           </div>

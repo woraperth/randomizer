@@ -20,6 +20,11 @@ var app = new Vue({
         chooseStudent: function(stu) {
             if(!this.isChosen(stu)) {
                 this.student_order.push( stu )
+
+                // Move to the next step
+                if(this.student_list.length === this.student_order.length) {
+                    this.step = 3
+                }
             }
         },
         // When listing student name
