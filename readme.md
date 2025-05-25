@@ -1,5 +1,7 @@
 # Randomizer
 
+Video: https://www.youtube.com/watch?v=_ZGSeaE18cs
+
 Fun random ordering tool for classroom. Great for classroom where the random presentation order is needed.
 
 No server is required. Just download and double click on `index.html` to run.
